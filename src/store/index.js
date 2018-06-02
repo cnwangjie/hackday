@@ -5,17 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    orders: [
-      {
-        address: '武汉华中科技大学'
-      },
-    ],
-    accepted: [],
+    orders: [],
   },
   getters: {
   },
   actions: {
   },
   mutations: {
+    addOrder(state, order) {
+      state.orders.push(order)
+    }
   }
 })

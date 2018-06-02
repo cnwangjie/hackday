@@ -40,11 +40,11 @@ process.on('unhandledRejection', reason => {
   log4js.getLogger().error(reason)
 })
 
-mongoose.Promise = bluebird
-mongoose.connect(nconf.get('mongodb'), {
-  promiseLibrary: Promise,
-  keepAlive: true,
-})
+// mongoose.Promise = bluebird
+// mongoose.connect(nconf.get('mongodb'), {
+//   promiseLibrary: Promise,
+//   keepAlive: true,
+// })
 
 const app = new Koa
 

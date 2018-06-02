@@ -1,0 +1,4 @@
+apps:
+  - script: dist/app.js
+    name: api
+    watch: true

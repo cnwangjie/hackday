@@ -73,89 +73,179 @@
     </v-btn>
   </v-toolbar>
   <v-list subheader>
-    <v-list-tile @click="">
+    <v-list-tile @click="switchAccepted">
       <v-list-tile-content>
-        已接受： {{ 1 }}
+        {{ !accepted ? '已接受： ' + acceptedSum : '返回' }}
       </v-list-tile-content>
     </v-list-tile>
-    <v-subheader>推荐</v-subheader>
-    <v-layout row>
+    <v-subheader v-if="supported && !accepted && !supported.accepted">推荐</v-subheader>
+    <v-layout row v-if="supported && !accepted && !supported.accepted">
       <v-flex sm12>
-        <v-card class="card">
+        <v-card class="order-card">
           <div class="card-content">
             <div>
-              地址： {{ '武汉xxxxxx' }}
+              地址： {{ supported.address }}
             </div>
             <div>
-              质量： {{ 1 }}kg  体积： {{ 2 }}立方米
+              质量： {{ supported.weight }}kg  体积： {{ supported.size }}立方米
             </div>
             <div>
-              <v-btn small color="blue">接受</v-btn>
+              <v-btn small color="blue" @click="accept(supported)">接受</v-btn>
               <v-btn small color="red">换一个</v-btn>
             </div>
           </div>
         </v-card>
       </v-flex>
     </v-layout>
-    <v-divider></v-divider>
-    <v-layout row>
+    <v-divider v-if="supported && !accepted && !supported.accepted"></v-divider>
+    <v-layout row v-if="!accepted">
       <v-flex sm6 offset-sm6 offset-xs4>
-        <v-btn small color="blue">重量</v-btn>
-        <v-btn small color="yellow">体积</v-btn>
+        <v-btn small color="blue" @click="sort('weight')">重量</v-btn>
+        <v-btn small color="yellow" @click="sort('size')">体积</v-btn>
       </v-flex>
     </v-layout>
-    <v-layout row>
+    <v-layout v-if="!accepted && index !== 0" row v-for="(order, index) in unacceptedOrders" :key="index">
       <v-flex sm12>
-        <v-card class="card">
+        <v-card class="order-card">
           <div class="card-content">
             <div>
-              地址： {{ '武汉xxxxxx' }}
+              地址： {{ order.address }}
             </div>
             <div>
-              质量： {{ 1 }}kg  体积： {{ 2 }}立方米
+              质量： {{ order.weight }}kg  体积： {{ order.size }}立方米
             </div>
             <div>
-              <v-btn color="blue">接受</v-btn>
+              <v-btn color="blue" @click="accept(order)">接受</v-btn>
               <v-btn color="red">换一个</v-btn>
             </div>
           </div>
         </v-card>
       </v-flex>
     </v-layout>
-    <v-layout row>
+    <v-layout v-if="accepted" row v-for="(order, index) in acceptedOrders" :key="index">
       <v-flex sm12>
-        <v-card class="card">
+        <v-card class="order-card">
           <div class="card-content">
             <div>
-              地址： {{ '武汉xxxxxx' }}
+              地址： {{ order.address }}
             </div>
             <div>
-              质量： {{ 1 }}kg  体积： {{ 2 }}立方米
+              联系方式： {{ order.tel }}
             </div>
             <div>
-              <v-btn color="blue">接受</v-btn>
-              <v-btn color="red">换一个</v-btn>
+              质量： {{ order.weight }}kg  体积： {{ order.size }}立方米
+            </div>
+            <div>
+              <v-btn color="green" @click="openComplete(index)">完成</v-btn>
             </div>
           </div>
         </v-card>
       </v-flex>
     </v-layout>
   </v-list>
+
+  <v-dialog v-model="completeModal" max-width="500px">
+    <v-card>
+      <v-card-title>
+        完成
+      </v-card-title>
+      <v-card-text>
+        <v-text-field
+          label="验证码"
+          type="number"
+        ></v-text-field>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn color="primary" flat @click.stop="completeModal = false">关闭</v-btn>
+        <v-btn color="green" @click.stop="completeOrder(completingIndex)">完成</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+
+  <v-snackbar
+    :timeout="2000"
+    bottom
+    v-model="snackbar"
+  >
+    {{ snackbarMsg }}
+  </v-snackbar>
+
 </div>
 </template>
 <script>
+import { getOrders, acceptOrder } from '@/service/getData'
+import { mapState, mapMutations } from 'vuex'
+
 export default {
   data() {
     return {
-      support: {},
       drawer: false,
+      supported: null,
+      sortWay: {
+        weight: false,
+        size: false,
+      },
+      completingIndex: NaN,
+      completeModal: false,
+      snackbar: false,
+      snackbarMsg: '成功',
     }
   },
+  computed: {
+    ...mapState(['orders']),
+    acceptedOrders() {
+      return this.orders.filter(i => i.accepted)
+    },
+    unacceptedOrders() {
+      return this.orders.filter(i => !i.accepted)
+    },
+    acceptedSum() {
+      return this.acceptedOrders.length
+    },
+    accepted() {
+      return this.$route.name === 'accpetedOrder'
+    },
+  },
   created() {
-
+    this.init()
   },
   methods: {
+    ...mapMutations(['addOrder']),
+    init() {
+      if (this.orders.length !== 0) return
 
+      getOrders().then(data => {
+        data.map(order => {
+          this.addOrder(order)
+        })
+        this.orders.map(order => {
+          if (!this.supported && !order.accepted)
+            this.supported = order
+        })
+      })
+    },
+    sort(dim) {
+      this.sortWay[dim] = !this.sortWay[dim]
+      this.orders.sort((a, b) => this.sortWay[dim] ? a[dim] < b[dim] : a[dim] > b[dim])
+    },
+    switchAccepted() {
+      if (this.accepted) this.$router.replace('/order')
+      else this.$router.replace('/order/accepted')
+    },
+    accept(order) {
+      order.accepted = true
+      // acceptOrder(order).then(() => {
+      // })
+    },
+    openComplete(index) {
+      this.completeModal = true
+      this.completingIndex = index
+    },
+    completeOrder(index) {
+      this.snackbar = true
+      this.completeModal = false
+      this.orders.splice(index, 1)
+    }
   }
 }
 </script>
@@ -164,7 +254,7 @@ export default {
   height: 40px;
   width: 40px;
 }
-.card {
+.order-card {
   background: #0055A7;
   margin: 0 20px 25px;
   .card-content {

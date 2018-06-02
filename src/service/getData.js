@@ -40,3 +40,7 @@ const fetchData = (url = '', method = 'GET', data = {}) => {
 }
 
 export const getLocations = () => fetchData('/locations')
+
+export const getOrders = () => fetchData('/orders')
+
+export const acceptOrder = order => fetchData('/sms/send', 'POST', {code: order.code, tel: order.tel})
