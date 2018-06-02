@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "material-design-icons-iconfont": "^3.0.3",
     "node-sass": "^4.9.0",
     "sass": "^1.5.1",
     "sass-loader": "^7.0.2",
@@ -17,7 +18,8 @@
     "scss-loader": "^0.0.1",
     "vue": "^2.5.2",
     "vue-baidu-map": "^0.21.10",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuetify": "^1.0.18"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

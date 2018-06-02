@@ -3501,6 +3501,10 @@ markdown-it@^8.4.0:
     mdurl "^1.0.1"
     uc.micro "^1.0.5"
 
+material-design-icons-iconfont@^3.0.3:
+  version "3.0.3"
+  resolved "http://registry.npm.taobao.org/material-design-icons-iconfont/download/material-design-icons-iconfont-3.0.3.tgz#154a1084047d4e27237fa7f5a37e1075ceea6df2"
+
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
   resolved "http://registry.npm.taobao.org/math-expression-evaluator/download/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
@@ -5957,6 +5961,10 @@ vue-template-es2015-compiler@^1.6.0:
 vue@^2.5.2:
   version "2.5.16"
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
+
+vuetify@^1.0.18:
+  version "1.0.18"
+  resolved "http://registry.npm.taobao.org/vuetify/download/vuetify-1.0.18.tgz#56289ba7c6e5eee3d4ee4dacd5e7dded4aee4c08"
 
 watchpack@^1.4.0:
   version "1.6.0"
