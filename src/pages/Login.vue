@@ -25,21 +25,24 @@
     </v-layout>
   </v-container>
   <div class="pictures">
-  <img src="/static/image/qq.png"
+  <router-link :to="'/selectPostion'">
+    <img src="/static/image/qq.png"
        alt="QQ登陆"
        height="80px"
        width="80px"
   />
+  </router-link>
+    <router-link :to="'/selectPostion'">
     <img src="/static/image/weixin.png"
          alt="微信登陆"
          height="80px"
          width="80px"
          class="p2"
-         />
+    />
+    </router-link>
   </div>
   <v-btn color="info" class="btn2">下一步</v-btn>
 </div>
-
 </template>
 <script>
 export default {
@@ -56,7 +59,8 @@ export default {
 h1{
   margin-left:35px;
   margin-top:50px;
-  color:#006
+  color:#006;
+  font-size:40px;
 }
   .container1{
     text-align:center;

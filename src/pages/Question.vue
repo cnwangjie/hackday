@@ -8,13 +8,13 @@
       <h3>驾车</h3>
 
       <p>适合经常驾驶家庭汽车上下班的老司机们，成为特约快递员。</p>
-      <v-btn color="primary">是</v-btn>
+      <v-btn :to="'/order'" color="primary">是</v-btn>
     </div>
     <div class="transport2">
       <img src="/static/image/subway.png"/>
       <h3>地铁/公交</h3>
       <p>适合乘坐地铁公交上下班通勤的职场人，成为特约快递员。</p>
-      <v-btn color="primary">是</v-btn>
+      <v-btn :to="'/order'" color="primary">是</v-btn>
     </div>
       </div>
     </div>
