@@ -18,6 +18,7 @@
     "scss-loader": "^0.0.1",
     "vue": "^2.5.2",
     "vue-baidu-map": "^0.21.10",
+    "vue-qrcode-reader": "^0.7.3",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.18",
     "vuex": "^3.0.1"

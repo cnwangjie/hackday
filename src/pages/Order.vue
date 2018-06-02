@@ -67,6 +67,9 @@
     <img class="logo" src="/static/image/logo.png"></img>
 
     <v-spacer></v-spacer>
+    <!-- <v-btn icon @click="scanner = true">
+      <v-icon>aspect_ratio</v-icon>
+    </v-btn> -->
     <v-btn icon @click="drawer = true">
       <v-icon>account_circle</v-icon>
     </v-btn>
@@ -135,7 +138,8 @@
               质量： {{ order.weight }}kg  体积： {{ order.size }}立方米
             </div>
             <div>
-              <v-btn color="green" @click="openComplete(index)">完成</v-btn>
+              <v-btn v-if="order.gain" color="green" @click="openComplete(index)">完成</v-btn>
+              <v-btn v-else color="blue" @click="scan(index)">取货</v-btn>
             </div>
           </div>
         </v-card>
@@ -168,12 +172,14 @@
   >
     {{ snackbarMsg }}
   </v-snackbar>
+  <scanner v-model="scanner" @decoded="decoded"></scanner>
 
 </div>
 </template>
 <script>
 import { getOrders, acceptOrder } from '@/service/getData'
 import { mapState, mapMutations } from 'vuex'
+import Scanner from '@/components/Scanner'
 
 export default {
   data() {
@@ -188,7 +194,12 @@ export default {
       completeModal: false,
       snackbar: false,
       snackbarMsg: '成功',
+      scanner: false,
+      scanningIndex: NaN,
     }
+  },
+  components: {
+    Scanner,
   },
   computed: {
     ...mapState(['orders']),
@@ -244,7 +255,16 @@ export default {
       this.snackbar = true
       this.completeModal = false
       this.orders.splice(index, 1)
-    }
+    },
+    scan(index) {
+      this.scanningIndex = index
+      this.scanner = true
+    },
+    decoded(content) {
+      this.snackbar = true
+      this.acceptedOrders[this.scanningIndex].gain = true
+      this.scanner = false
+    },
   }
 }
 </script>
