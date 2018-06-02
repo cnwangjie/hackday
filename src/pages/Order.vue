@@ -3,7 +3,9 @@
   <v-navigation-drawer right app fixed v-model="drawer">
     <v-layout row>
       <v-flex xs6>
-        <div class="avatar"></div>
+        <div class="avatar">
+          <img src="/static/image/avatar.png"></img>
+        </div>
       </v-flex>
       <v-flex xs6>
         <div class="text-xs-left tags">
@@ -65,9 +67,6 @@
     <img class="logo" src="/static/image/logo.png"></img>
 
     <v-spacer></v-spacer>
-    <v-toolbar-items>
-      <v-btn flat>在线客服</v-btn>
-    </v-toolbar-items>
     <v-btn icon @click="drawer = true">
       <v-icon>account_circle</v-icon>
     </v-btn>
@@ -91,7 +90,7 @@
             </div>
             <div>
               <v-btn small color="blue" @click="accept(supported)">接受</v-btn>
-              <v-btn small color="red">换一个</v-btn>
+              <!-- <v-btn small color="red">换一个</v-btn> -->
             </div>
           </div>
         </v-card>
@@ -100,8 +99,8 @@
     <v-divider v-if="supported && !accepted && !supported.accepted"></v-divider>
     <v-layout row v-if="!accepted">
       <v-flex sm6 offset-sm6 offset-xs4>
-        <v-btn small color="blue" @click="sort('weight')">重量</v-btn>
-        <v-btn small color="yellow" @click="sort('size')">体积</v-btn>
+        <v-btn small flat @click="sort('weight')">重量</v-btn>
+        <v-btn small flat @click="sort('size')">体积</v-btn>
       </v-flex>
     </v-layout>
     <v-layout v-if="!accepted && index !== 0" row v-for="(order, index) in unacceptedOrders" :key="index">
@@ -116,7 +115,7 @@
             </div>
             <div>
               <v-btn color="blue" @click="accept(order)">接受</v-btn>
-              <v-btn color="red">换一个</v-btn>
+              <!-- <v-btn color="red">换一个</v-btn> -->
             </div>
           </div>
         </v-card>
@@ -234,6 +233,7 @@ export default {
     },
     accept(order) {
       order.accepted = true
+
       acceptOrder(order)
     },
     openComplete(index) {
@@ -299,5 +299,9 @@ export default {
   .btn__content {
     padding: 0;
   }
+}
+.card {
+  transition: 2s;
+  box-shadow: 1px 1px 5px #8c8c8c;
 }
 </style>

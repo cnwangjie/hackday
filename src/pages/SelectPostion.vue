@@ -15,7 +15,7 @@
               <v-select
                 :items="handledLocs"
                 v-model="startLocName"
-                label="出发地点"
+                label="公司地点"
                 autocomplete
                 @change="changed"
               ></v-select>
@@ -26,7 +26,7 @@
               <v-select
                 :items="handledLocs"
                 v-model="endLocName"
-                label="结束地点"
+                label="小区地点"
                 autocomplete
                 @change="changed"
               ></v-select>
