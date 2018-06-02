@@ -4,6 +4,7 @@ import Login from '@/pages/Login'
 import SelectPostion from '@/pages/SelectPostion'
 import Question from '@/pages/Question'
 import Order from '@/pages/Order'
+import OrderCenter from '@/pages/OrderCenter'
 
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
       path: '/order/accepted',
       component: Order,
       name: 'accpetedOrder',
+    },
+    {
+      path: '/orderCenter',
+      component: OrderCenter,
+      name: 'orderCenter',
     },
   ]
 })
