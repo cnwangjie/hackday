@@ -10,7 +10,13 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "node-sass": "^4.9.0",
+    "sass": "^1.5.1",
+    "sass-loader": "^7.0.2",
+    "scss": "^0.2.4",
+    "scss-loader": "^0.0.1",
     "vue": "^2.5.2",
+    "vue-baidu-map": "^0.21.10",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
