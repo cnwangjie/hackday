@@ -3,7 +3,7 @@ cp api/config.yaml.tmp api/config.yaml
 yarn
 yarn build
 cd dist
-cp -r ./**/* /usr/share/nginx/html/
+cp -r ./* /usr/share/nginx/html/
 cd ..
 cd api
 yarn

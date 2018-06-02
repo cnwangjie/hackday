@@ -234,8 +234,7 @@ export default {
     },
     accept(order) {
       order.accepted = true
-      // acceptOrder(order).then(() => {
-      // })
+      acceptOrder(order)
     },
     openComplete(index) {
       this.completeModal = true
