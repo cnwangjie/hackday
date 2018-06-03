@@ -1,15 +1,6 @@
 <template>
   <div id="community0">
-<ul id="layer-42" class="layer-1">
-  <li>
-    <img src="/static/image/logo.png" class="logo-2"/>
-  </li>
-  <!-- <li>
-    <img src="/static/image/Fill-45.png" class="fill-45"/>
-  </li>
-  <li class="link1">当前任务</li> -->
-  <li class="blue-circle"></li>
-</ul>
+    <toolbar></toolbar>
     <div class="tips">
       <v-btn color="success">今天买了什么</v-btn>
       <v-btn color="warning">心情如何</v-btn>
@@ -101,11 +92,20 @@
   </div>
 </template>
 <script>
-  export default{
+import Toolbar from '@/components/Toolbar'
 
-  }
+export default{
+  data() {
+    return {
+      drawer: false,
+    }
+  },
+  components: {
+    Toolbar,
+  },
+}
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 #community0{
   width:100%;
 }

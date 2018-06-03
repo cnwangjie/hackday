@@ -16,6 +16,11 @@ export default new Router({
       name: 'login',
     },
     {
+      path: '/register',
+      component: Login,
+      name: 'register',
+    },
+    {
       path: '/selectPostion',
       component: SelectPostion,
       name: 'select-postion',
