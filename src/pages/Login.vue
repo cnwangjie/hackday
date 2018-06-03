@@ -28,9 +28,9 @@
       </v-flex>
     </v-layout>
   </v-container>
-  <v-btn v-if="isLogin" color="info" class="btn2" :to="'/register'">注册</v-btn>
-  <v-btn v-if="isLogin" color="info" class="btn2" :to="'/order'">登录</v-btn>
-  <v-btn v-if="!isLogin" color="info" class="btn2" :to="'/selectPostion'">下一步</v-btn>
+  <v-btn v-if="isLogin" color="theme-blue" class="btn2" :to="'/register'">注册</v-btn>
+  <v-btn v-if="isLogin" color="theme-blue" class="btn2" :to="'/order'">登录</v-btn>
+  <v-btn v-if="!isLogin" color="theme-blue" class="btn2" :to="'/selectPostion'">下一步</v-btn>
 </div>
 </template>
 <script>

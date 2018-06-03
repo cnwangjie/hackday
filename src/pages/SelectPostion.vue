@@ -36,7 +36,7 @@
         <v-card-actions>
           <v-layout row>
             <v-flex sm12>
-              <v-btn :to="'/question'">下一步</v-btn>
+              <v-btn :to="'/question'" color="theme-blue">下一步</v-btn>
             </v-flex>
           </v-layout>
         </v-card-actions>

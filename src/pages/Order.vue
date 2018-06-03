@@ -19,7 +19,7 @@
               质量： {{ supported.weight }}kg  体积： {{ supported.size }}立方米
             </div>
             <div>
-              <v-btn small color="blue" @click="accept(supported)">接受</v-btn>
+              <v-btn small color="theme-blue" @click="accept(supported)">接受</v-btn>
               <!-- <v-btn small color="red">换一个</v-btn> -->
             </div>
           </div>
@@ -44,7 +44,7 @@
               质量： {{ order.weight }}kg  体积： {{ order.size }}立方米
             </div>
             <div>
-              <v-btn color="blue" @click="accept(order)">接受</v-btn>
+              <v-btn color="theme-blue" @click="accept(order)">接受</v-btn>
               <!-- <v-btn color="red">换一个</v-btn> -->
             </div>
           </div>
@@ -65,8 +65,8 @@
               质量： {{ order.weight }}kg  体积： {{ order.size }}立方米
             </div>
             <div>
-              <v-btn v-if="order.gain" color="green" @click="openComplete(index)">完成</v-btn>
-              <v-btn v-else color="blue" @click="scan(index)">取货</v-btn>
+              <v-btn v-if="order.gain" color="theme-blue" @click="openComplete(index)">完成</v-btn>
+              <v-btn v-else color="theme-blue" @click="scan(index)">取货</v-btn>
             </div>
           </div>
         </v-card>
@@ -86,8 +86,8 @@
         ></v-text-field>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="primary" flat @click.stop="completeModal = false">关闭</v-btn>
-        <v-btn color="green" @click.stop="completeOrder(completingIndex)">完成</v-btn>
+        <v-btn color="theme-blue" flat @click.stop="completeModal = false">关闭</v-btn>
+        <v-btn color="theme-blue" @click.stop="completeOrder(completingIndex)">完成</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

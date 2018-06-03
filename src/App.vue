@@ -14,5 +14,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.theme-blue {
+  background-color: #0055a7 !important;
+  color: #fff !important;
+}
 </style>
+
