@@ -6,6 +6,7 @@ import Question from '@/pages/Question'
 import Order from '@/pages/Order'
 import OrderCenter from '@/pages/OrderCenter'
 import Community from '@/pages/Community'
+import scoreShop from '@/pages/scoreShop'
 Vue.use(Router)
 
 export default new Router({
@@ -49,6 +50,11 @@ export default new Router({
       path: '/community',
       component:Community,
       name: 'comunity',
+    },
+    {
+      path: '/scoreshop',
+      component:scoreShop,
+      name: 'scoreshop',
     },
   ]
 })
