@@ -48,7 +48,7 @@
             <img class="icon" src="/static/image/credit.png"></img>
           </v-flex>
           <v-flex xs8>
-            <div class="text">积分</div>
+            <div class="text"><router-link :to="'/scoreshop'">积分</router-link></div>
           </v-flex>
         </v-layout>
         <v-layout row class="side-list">
