@@ -2,14 +2,12 @@
   <div id="community0">
     <toolbar></toolbar>
     <div class="tips">
-      <v-btn color="success">今天买了什么</v-btn>
-      <v-btn color="warning">心情如何</v-btn>
-      <v-btn color="info">是否遇到喜欢的人</v-btn>
-    </div>
-    <div class="tip2">
-      <v-btn class="purple" >分享一个有趣的事情</v-btn>
-      <v-btn class="orange">又撸了谁家的猫</v-btn>
-      <v-btn class="red">儿童节有礼物吗</v-btn>
+      <v-chip label color="success" dark text-color="white">今天买了什么</v-chip>
+      <v-chip label color="warning" dark text-color="white">心情如何</v-chip>
+      <v-chip label color="info" dark text-color="white">是否遇到喜欢的人</v-chip>
+      <v-chip label class="purple" dark text-color="white" >分享一个有趣的事情</v-chip>
+      <v-chip label class="orange" dark text-color="white">又撸了谁家的猫</v-chip>
+      <v-chip label class="red" dark text-color="white">儿童节有礼物吗</v-chip>
     </div>
     <v-card>
       <v-container
@@ -18,7 +16,7 @@
       >
         <v-layout row wrap>
           <v-flex xs12>
-            <v-card class="white--text" height="250px">
+            <v-card class="white--text">
               <v-card-title primary-title>
                 <div class="Id1">
                 <div class="touxiang"><img src="/static/image/Unknown.png"/></div>
@@ -40,7 +38,7 @@
           </v-flex>
 
           <v-flex xs12>
-            <v-card class="white--text" height="250px">
+            <v-card class="white--text">
               <v-card-title primary-title>
                 <div class="Id1">
                   <div class="touxiang"><img src="/static/image/cat.png"/></div>
@@ -62,7 +60,7 @@
           </v-flex>
 
           <v-flex xs12>
-            <v-card class="white--text" height="250px">
+            <v-card class="white--text">
               <v-card-title primary-title>
                 <div class="Id1">
                   <div class="touxiang"><img src="/static/image/timg-1.png"/></div>
@@ -116,89 +114,89 @@ export default{
   padding-left: 5px;
   padding-right:5px;
 }
-li{
+li {
   display:inline;
 }
-  .logo-2{
-    width:30px;
-    height:30px;
-  }
-  .fill-45{
-    height:25px;
-    width: 25px;
-    margin-left:230px;
-  }
-  .link1{
-    border:1px solid #0055A7;
-    color:#0055A7;
-    background-color: white;
+.logo-2 {
+  width:30px;
+  height:30px;
+}
+.fill-45 {
+  height:25px;
+  width: 25px;
+  margin-left:230px;
+}
+.link1 {
+  border:1px solid #0055A7;
+  color:#0055A7;
+  background-color: white;
+  width:50px;
+  height:40px;
+  font-size: 18px;
+}
+.blue-circle{
+  display:block;
+  float:right;
+  width:30px;
+  height:30px;
+  border-radius:30px;
+  background-color: #0055A7;
+}
 
-    width:50px;
-    height:40px;
-    font-size: 18px;
-  }
-  .blue-circle{
-    display:block;
-    float:right;
-    width:30px;
-    height:30px;
-    border-radius:30px;
-    background-color: #0055A7;
-  }
-
-  .tips{
-    margin-left:auto;
-    margin-right:auto;
-  }
-  .tip2{
-    margin-left:auto;
-    margin-right:auto;
-  }
-  .white--text{
-    margin-left:auto;
-    margin-right:auto;
-  }
-.touxiang{
+.tips{
+  margin: 4px;
+}
+.white--text{
+  margin-left:auto;
+  margin-right:auto;
+}
+.touxiang {
   width:25px;
   height:25px;
   display:inline-block;
 }
-.account{
+.account {
   display:inline-block;
-margin-left:30px;
+  margin-left:30px;
   color:#666;
 }
-  p{
-    color:black;
-    font-size:20px;
-  }
-  .fav{
-margin-left:70%
-  }
-  .comment{
-    margin-left:20px;
-  }
-  input[type="text"]{
-    margin-left:30px;
-    height:40px;
-    width:250px;
-    border-radius:20px;
-    background-color: #eee;
-  }
-  .btn1{
-    line-height: 40px;
-    width:110px;
-    margin-top:10px;
-    margin-left:-35px;
-    height:40px;
-    border-radius:20px;
-    background-color:#0055A7;
-    color:white;
-  }
-  .comment2{
-    position:fixed;
+p {
+  color:black;
+  font-size:20px;
+}
+.fav {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+}
+.comment {
+  margin-left:20px;
+}
+input[type="text"] {
+  margin-left:30px;
+  height:40px;
+  width:250px;
+  border-radius:20px;
+  background-color: #eee;
+}
+.btn1 {
+  line-height: 40px;
+  width:110px;
+  margin-top:10px;
+  margin-left:-35px;
+  height:40px;
+  border-radius:20px;
+  background-color:#0055A7;
+  color:white;
+}
+.comment2 {
+  position:fixed;
   margin-left:auto;
   margin-right:auto;
-    bottom:30px;
-   }
+  bottom:30px;
+}
+.comments {
+  text-align: left;
+  padding-bottom: 35px;
+}
 </style>

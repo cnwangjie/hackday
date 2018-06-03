@@ -19,7 +19,7 @@
               质量： {{ supported.weight }}kg  体积： {{ supported.size }}立方米
             </div>
             <div>
-              <v-btn small color="theme-blue" @click="accept(supported)">接受</v-btn>
+              <v-btn class="act-btn" small color="theme-blue" @click="accept(supported)">接受</v-btn>
               <!-- <v-btn small color="red">换一个</v-btn> -->
             </div>
           </div>
@@ -28,9 +28,9 @@
     </v-layout>
     <v-divider v-if="supported && !accepted && !supported.accepted"></v-divider>
     <v-layout row v-if="!accepted">
-      <v-flex sm6 offset-sm6 offset-xs4>
-        <v-btn small flat @click="sort('weight')">重量</v-btn>
-        <v-btn small flat @click="sort('size')">体积</v-btn>
+      <v-flex sm12>
+        <v-btn class="act-btn" small flat @click="sort('weight')">重量</v-btn>
+        <v-btn class="act-btn" small flat @click="sort('size')">体积</v-btn>
       </v-flex>
     </v-layout>
     <v-layout v-if="!accepted && index !== 0" row v-for="(order, index) in unacceptedOrders" :key="index">
@@ -44,7 +44,7 @@
               质量： {{ order.weight }}kg  体积： {{ order.size }}立方米
             </div>
             <div>
-              <v-btn color="theme-blue" @click="accept(order)">接受</v-btn>
+              <v-btn class="act-btn" color="theme-blue" @click="accept(order)">接受</v-btn>
               <!-- <v-btn color="red">换一个</v-btn> -->
             </div>
           </div>
@@ -65,8 +65,8 @@
               质量： {{ order.weight }}kg  体积： {{ order.size }}立方米
             </div>
             <div>
-              <v-btn v-if="order.gain" color="theme-blue" @click="openComplete(index)">完成</v-btn>
-              <v-btn v-else color="theme-blue" @click="scan(index)">取货</v-btn>
+              <v-btn class="act-btn" v-if="order.gain" color="theme-blue" @click="openComplete(index)">完成</v-btn>
+              <v-btn class="act-btn" v-else color="theme-blue" @click="scan(index)">取货</v-btn>
             </div>
           </div>
         </v-card>
@@ -86,8 +86,8 @@
         ></v-text-field>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="theme-blue" flat @click.stop="completeModal = false">关闭</v-btn>
-        <v-btn color="theme-blue" @click.stop="completeOrder(completingIndex)">完成</v-btn>
+        <v-btn class="act-btn" color="theme-blue" flat @click.stop="completeModal = false">关闭</v-btn>
+        <v-btn class="act-btn" color="theme-blue" @click.stop="completeOrder(completingIndex)">完成</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -221,7 +221,11 @@ export default {
   .card-content {
     background: #fff;
     margin-left: 20%;
-    padding: 38px 0 20px 17px;
+    padding: 20px 0 70px 17px;
   }
+}
+.act-btn {
+  float: right;
+  margin: 20px 40px 12px 0;
 }
 </style>

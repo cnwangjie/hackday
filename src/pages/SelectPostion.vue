@@ -36,7 +36,7 @@
         <v-card-actions>
           <v-layout row>
             <v-flex sm12>
-              <v-btn :to="'/question'" color="theme-blue">下一步</v-btn>
+              <v-btn class="step-btn" :to="'/question'" color="theme-blue">下一步</v-btn>
             </v-flex>
           </v-layout>
         </v-card-actions>
@@ -91,5 +91,9 @@ export default {
 .bm-view {
   width: 100%;
   height: 400px;
+}
+.step-btn {
+  float: right;
+  margin: 0 40px 40px 0;
 }
 </style>

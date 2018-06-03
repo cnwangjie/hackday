@@ -43,36 +43,36 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  #login1{
-    margin-top:50px;
-  }
-  .logo1{
-    margin-left:20px
-  }
+#login1{
+  margin-top:50px;
+}
+.logo1{
+  margin-left:20px
+}
 h1{
   margin-left:35px;
   margin-top:50px;
   color:#006;
   font-size:40px;
 }
-  .container1{
-    text-align:center;
-    margin-left:15px;
-  }
+.container1{
+  text-align:center;
+  margin-left:15px;
+}
 .btn1{
   margin-top:16px;
 }
 .field1{
   margin-left:5px;
 }
-  .pictures{
-    position:relative;
-    margin-left:40px;
-    top:-5px;
-  }
-  .p2{
-    margin-left:20px;
-  }
+.pictures{
+  position:relative;
+  margin-left:40px;
+  top:-5px;
+}
+.p2{
+  margin-left:20px;
+}
 .btn2{
   margin-left:40px;
 }
