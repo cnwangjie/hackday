@@ -172,14 +172,18 @@
   >
     {{ snackbarMsg }}
   </v-snackbar>
-  <scanner v-model="scanner" @decoded="decoded"></scanner>
+  <v-dialog v-model="scanner" max-width="500px">
+    <v-card>
+      <QrcodeReader @decode="decoded"></QrcodeReader>
+    </v-card>
+  </v-dialog>
 
 </div>
 </template>
 <script>
 import { getOrders, acceptOrder } from '@/service/getData'
 import { mapState, mapMutations } from 'vuex'
-import Scanner from '@/components/Scanner'
+import { QrcodeReader } from 'vue-qrcode-reader'
 
 export default {
   data() {
@@ -199,7 +203,7 @@ export default {
     }
   },
   components: {
-    Scanner,
+    QrcodeReader,
   },
   computed: {
     ...mapState(['orders']),
