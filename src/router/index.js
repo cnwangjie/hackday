@@ -5,7 +5,7 @@ import SelectPostion from '@/pages/SelectPostion'
 import Question from '@/pages/Question'
 import Order from '@/pages/Order'
 import OrderCenter from '@/pages/OrderCenter'
-
+import Community from '@/pages/Community'
 Vue.use(Router)
 
 export default new Router({
@@ -39,6 +39,11 @@ export default new Router({
       path: '/orderCenter',
       component: OrderCenter,
       name: 'orderCenter',
+    },
+    {
+      path: '/community',
+      component:Community,
+      name: 'comunity',
     },
   ]
 })
