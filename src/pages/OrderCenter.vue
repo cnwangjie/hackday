@@ -3,11 +3,7 @@
     style="max-width: 100%; margin: auto; margin-top: 0%;"
     class="grey lighten-3"
   >
-    <v-toolbar color="white">
-      <v-toolbar-title class="cardtitle">订单中心</v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-toolbar>
-
+    <toolbar></toolbar>
     <v-card>
       <v-container
         fluid
@@ -50,9 +46,14 @@
 
 </template>
 <script>
-    export default {
-        name: "order-center"
-    }
+import Toolbar from '@/components/Toolbar'
+
+export default {
+  name: "order-center",
+  components: {
+    Toolbar,
+  },
+}
 </script>
 
 <style lang="scss" scoped>
