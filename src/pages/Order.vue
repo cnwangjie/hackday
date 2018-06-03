@@ -40,7 +40,7 @@
             <img class="icon" src="/static/image/point.png"></img>
           </v-flex>
           <v-flex xs8>
-            <div class="text">信用分</div>
+            <div class="text"><router-link :to="'/community'">社区</router-link></div>
           </v-flex>
         </v-layout>
         <v-layout row class="side-list">
@@ -56,7 +56,7 @@
             <img class="icon" src="/static/image/list.png"></img>
           </v-flex>
           <v-flex xs8>
-            <div class="text">我的订单</div>
+            <div class="text"><router-link :to="'/orderCenter'">我的订单</router-link></div>
           </v-flex>
         </v-layout>
       </v-flex>
@@ -172,7 +172,7 @@
   >
     {{ snackbarMsg }}
   </v-snackbar>
-  <v-dialog v-model="scanner" max-width="500px">
+  <v-dialog v-model="scanner" max-width="500px" max-height="500px">
     <v-card>
       <QrcodeReader @decode="decoded"></QrcodeReader>
     </v-card>
@@ -204,6 +204,11 @@ export default {
   },
   components: {
     QrcodeReader,
+  },
+  watch: {
+    scanner(dst) {
+      if (!dst) this.decoded()
+    }
   },
   computed: {
     ...mapState(['orders']),
@@ -317,6 +322,10 @@ export default {
   .text {
     border-bottom: solid 1px black;
     padding: 0 0 0 40px;
+    a {
+      color: black;
+      text-decoration: none;
+    }
   }
 }
 .btn {

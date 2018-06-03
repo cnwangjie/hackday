@@ -4,10 +4,10 @@
   <li>
     <img src="/static/image/logo.png" class="logo-2"/>
   </li>
-  <li>
+  <!-- <li>
     <img src="/static/image/Fill-45.png" class="fill-45"/>
   </li>
-  <li class="link1">当前任务</li>
+  <li class="link1">当前任务</li> -->
   <li class="blue-circle"></li>
 </ul>
     <div class="tips">
